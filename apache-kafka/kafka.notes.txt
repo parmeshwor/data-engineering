@@ -1,0 +1,139 @@
+Apache Kafka is event streaming platform.
+
+system for managing logs.
+topic is ordered collection of events stored in disk.
+can store short or long period of time.
+topic can be small or large.
+persistent record is topic.
+
+
+events stored in topic .
+
+
+kafka connect <----> back and forth from db and other storages, legacy systems
+
+
+ecosystem of connectors
+
+kafka stream api
+
+
+What is event streaming ?
+Event streaming is equivalent to 'always-on' human central nervous system.
+
+Capturing stream of data in real-time from event sources like db, sensors, cloud etc.
+store them durably for later retrieval ;
+manipulate and process streams in the real-time as well as retrospectively;
+and routing the event streams to different destination technologies as needed.
+
+Ensures continuous flow and interpretation of data so that the right information is at
+
+
+Uses of Event Streaming
+process payment and financial transaction in real time
+continuously capture and analyze sensor data from IOT devices
+monitor patients in hospital care
+serve event driven architectures and microservices
+
+What does it mean by event streaming platform?
+Kafka combines three capabilities ,
+1. to publish (write) and subscribe to (read) streams of events including import/export
+2. store streams durably
+3. process streams of events in realtime or retrospectively
+
+distributed, highly scalable, elastic, fault-tolerant and secure.
+
+
+How does Kafka work in nutshell?
+
+distributed system with client server architecture.
+client and server communicate via. TCP protocol.
+
+Server : Kafka runs as cluster of one or more servers. two types of servers.
+        brokers are the servers to form storage layer.
+        kafka-connect are the servers to continuously import/export data as event streams.
+
+Clients : Allow you to write distributed apps and microservices that read, write and process
+          stream of events in parallel.
+          kafka comes with some inbuilt clients that are augmentation of dozens of clients.
+          clients are available for python, java, go etc.
+
+
+Main concepts and technology:
+
+Event : also called record or message in the documentation. when you read or write data to kafka, you do this in the form
+of events. Event has - key, - value , -timestamp, -optional metadata
+
+Producers : are those client applications that publish or write to kafka.
+Consumers : are those client applicaitons that subscribe or read from kafka.
+
+In kafka producers and consumers are fully decoupled and agnostic of each other.
+
+Topics : events are organized and durably stored in Topics.  If Topic is folder then Events are files.
+         Topics in Kafka are always multi-producer and multi subscriber. zero or more producers can write to a Topic
+         and zero or more consumers can read from a Topic.
+         Events in topic are not deleted after consumption.
+
+         Topics are partitioned. A topic is spread over a number of "Buckets" located on different Kafka brokers.
+         Events with same key are written to same Topic.
+         Kafka guarantees that any consumer of a given topic-partition will always read that partition's events in
+         exactly the same order as they were written.
+
+         Topic can be replicated to make it highly available and fault tolerant.
+
+
+Kafka Apis : In addition to command line tooling for management and administration tasks. Kafka has five core APIs for Java and Scala
+    1. Admin API : manage and inspect topics, brokers and kafka objects
+    2. Producer API : write stream of events to Kafka topic
+    3. Consumer API : read from topic and process stream of events
+    4. Kafka Streams API : implement stream processing applications and microservices.
+    5. Kafka Connect API : To build and run resuable data import/export connectors.
+
+Quick Start :
+
+Step 1 : Download the latest Kafka and extract
+wget https://www.apache.org/dyn/closer.cgi?path=/kafka/2.7.0/kafka_2.13-2.7.0.tgz
+$ tar -xzf kafka_2.13-2.7.0.tgz
+$ cd kafka_2.13-2.7.0
+
+Step 2 : Start the kafka environment
+
+# Start the ZooKeeper service
+# Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
+$ bin/zookeeper-server-start.sh config/zookeeper.properties
+
+# Start the Kafka broker service
+$ bin/kafka-server-start.sh config/server.properties
+
+step 3 : create a topic to store events
+( Kafka is a distributed event streaming platform that lets you read, write, store and process events ( also called
+  records or messages in the documentation ) across many machines.
+
+  Example events are payment transactions, geolocation updates from mobile phones, shipping orders, sensor measurements
+  from IoT devices or medical equipment, and much more. These events are organized and stored in Topics.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
